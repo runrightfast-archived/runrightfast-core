@@ -6,7 +6,7 @@ abstract class UUIDUtils {
 	 * 
 	 * @return uuid with '-' stripped out to conserve bytes
 	 */
-	def static String uuid() {
+	static String uuid() {
 		UUID.randomUUID().toString().replace('-', '');
 	}
 }
