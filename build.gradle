@@ -1,0 +1,22 @@
+subprojects {
+    apply plugin: 'groovy'
+    apply plugin: 'eclipse'
+
+    repositories {
+       mavenCentral()
+    }
+
+    dependencies {
+        compile("org.codehaus.groovy:groovy-all:2.2.1")
+
+        compile 'com.google.guava:guava:15.0'
+
+        testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    }
+
+    version = '0.0.1'
+
+    jar {
+        manifest.attributes provider: 'RunRightFast'
+    }
+}
