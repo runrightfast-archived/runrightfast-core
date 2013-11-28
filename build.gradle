@@ -7,9 +7,9 @@ subprojects {
     }
 
     dependencies {
-        compile("org.codehaus.groovy:groovy-all:2.2.1:indy")
-
+        compile 'org.codehaus.groovy:groovy-all:2.2.1:indy'
         compile 'com.google.guava:guava:15.0'
+        compile 'ch.qos.logback:logback-classic:1.0.13'
 
         testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
     }

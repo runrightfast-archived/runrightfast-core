@@ -15,14 +15,21 @@
  */
 package test.co.runrightfast.commons
 
-import co.runrightfast.commons.BeanUtils
-import co.runrightfast.commons.UUIDUtils
+import groovy.util.logging.Slf4j
 import spock.lang.Specification
+import co.runrightfast.commons.BeanUtils
 
 class BeanUtilsSpock extends Specification {
 
+   @Slf4j
    static class Person{
       def String fname, lname
+
+      def getName() {
+         def _name = fname + ' ' + lname
+         log.info(_name)
+         _name
+      }
    }
 
    def "exec should be able to set a bean properties in a DSL fashion"() {
@@ -38,6 +45,7 @@ class BeanUtilsSpock extends Specification {
       then :
       person.fname == "Alfio"
       person.lname == "Zappala"
+      person.name == "Alfio Zappala"
    }
 
    def "exec should be able to set a bean properties in a DSL fashion and returns the target"() {
