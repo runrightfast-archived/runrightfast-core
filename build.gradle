@@ -1,24 +1,30 @@
+buildscript {
+   repositories { mavenCentral() }
+   dependencies { classpath "net.saliman:gradle-cobertura-plugin:2.1.0" }
+}
+
 subprojects {
-    apply plugin: 'groovy'
-    apply plugin: 'eclipse'
+   apply plugin: 'groovy'
+   apply plugin: 'eclipse'
+   apply plugin: 'cobertura'
 
-    repositories {
-       mavenCentral()
-    }
+   repositories { mavenCentral() }
 
-    dependencies {
-        compile 'org.codehaus.groovy:groovy-all:2.2.1:indy'
-        compile 'com.google.guava:guava:15.0'
-        compile 'ch.qos.logback:logback-classic:1.0.13'
+   dependencies {
+      compile 'org.codehaus.groovy:groovy-all:2.2.1:indy'
+      compile 'com.google.guava:guava:15.0'
+      compile 'ch.qos.logback:logback-classic:1.0.13'
 
-        testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
-    }
+      testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+   }
 
-    version = '0.0.1'
+   version = '0.0.1'
 
-    jar {
-        manifest.attributes provider: 'RunRightFast'
-    }
-	
-	build.dependsOn javadoc,groovydoc
+   jar { manifest.attributes provider: 'RunRightFast' }
+
+   cobertura {
+      coverageSourceDirs << project.sourceSets.main.groovy.srcDirs
+   }
+
+   build.dependsOn javadoc,groovydoc
 }
