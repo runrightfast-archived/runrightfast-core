@@ -15,13 +15,18 @@
  */
 package co.runrightfast.commons
 
-abstract class UUIDUtils {
+abstract class BeanUtils {
 
    /**
+    * Enables properties and methods to be invoked on the supplied target in a more groovy way
     * 
-    * @return uuid with '-' stripped out to conserve bytes
+    * @param target
+    * @param code
+    * @return target
     */
-   static String uuid() {
-      UUID.randomUUID().toString().replace('-', '')
+   def static exec(@DelegatesTo.Target target,@DelegatesTo code){
+      def clone = code.rehydrate(target, this, this)
+      clone()
+      target
    }
 }
