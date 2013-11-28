@@ -7,7 +7,7 @@ subprojects {
     }
 
     dependencies {
-        compile("org.codehaus.groovy:groovy-all:2.2.1")
+        compile("org.codehaus.groovy:groovy-all:2.2.1:indy")
 
         compile 'com.google.guava:guava:15.0'
 
@@ -19,4 +19,6 @@ subprojects {
     jar {
         manifest.attributes provider: 'RunRightFast'
     }
+	
+	build.dependsOn javadoc,groovydoc
 }
