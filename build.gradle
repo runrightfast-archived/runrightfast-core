@@ -20,7 +20,7 @@ subprojects {
       testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
    }
 
-   version = '0.0.1'
+   version = '0.0.1-SNAPSHOT'
 
    jar { manifest.attributes provider: 'RunRightFast' }
 
