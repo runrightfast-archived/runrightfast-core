@@ -4,6 +4,8 @@ buildscript {
 }
 
 subprojects {
+   version = '0.0.1-SNAPSHOT'
+   
    apply plugin: 'groovy'
    apply plugin: 'eclipse'
    apply plugin: 'cobertura'
@@ -19,9 +21,7 @@ subprojects {
       compile 'ch.qos.logback:logback-classic:1.0.13'
 
       testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
-   }
-
-   version = '0.0.1-SNAPSHOT'
+   }   
 
    jar { manifest.attributes provider: 'RunRightFast' }
 
@@ -29,11 +29,12 @@ subprojects {
       coverageSourceDirs << project.sourceSets.main.groovy.srcDirs
    }
 
+   sourceCompatibility = 1.7
+   targetCompatibility = 1.7
+
    build.dependsOn javadoc,groovydoc
 }
 
-task wrapper(type: Wrapper) {
-   gradleVersion = '1.9'
-}
+task wrapper(type: Wrapper) { gradleVersion = '1.9' }
 
 defaultTasks 'clean', 'build', 'cobertura'
