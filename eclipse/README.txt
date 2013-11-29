@@ -13,6 +13,10 @@ Install the following STS extensions:
   - FindBugs
   - PMD
   
+Install the following Eclipse Plugins from the Eclipse Marketplace:
+- Markdown Editor
+- CodeNarc Eclipse
+  
 Gradle Project Import Instructions
 ==================================
 After cloning the GIT repositories, perform a "Gradle Project" import into the workspace

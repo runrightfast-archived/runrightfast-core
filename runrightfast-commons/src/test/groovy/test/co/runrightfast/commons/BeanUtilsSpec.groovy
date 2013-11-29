@@ -16,6 +16,7 @@
 package test.co.runrightfast.commons
 
 import groovy.util.logging.Slf4j
+import spock.lang.Shared
 import spock.lang.Specification
 import co.runrightfast.commons.BeanUtils
 
@@ -32,31 +33,34 @@ class BeanUtilsSpec extends Specification {
       }
    }
 
+   @Shared String fname = 'Alfio'
+   @Shared String lname = 'Zappala'
+
    def "exec should be able to set a bean properties in a DSL fashion"() {
       setup:
       def person = new Person()
 
       when:
       BeanUtils.exec(person) {
-         fname = 'Alfio'
-         lname = 'Zappala'
+         fname = this.fname
+         lname = this.lname
       }
 
       then :
-      person.fname == 'Alfio'
-      person.lname == 'Zappala'
+      person.fname == this.fname
+      person.lname == this.lname
       person.name == 'Alfio Zappala'
    }
 
    def "exec should be able to set a bean properties in a DSL fashion and returns the target"() {
       when:
       def person =  BeanUtils.exec(new Person()) {
-         fname = 'Alfio'
-         lname = 'Zappala'
+         fname = this.fname
+         lname = this.lname
       }
 
       then :
-      person.fname == 'Alfio'
-      person.lname == 'Zappala'
+      person.fname == this.fname
+      person.lname == this.lname
    }
 }
