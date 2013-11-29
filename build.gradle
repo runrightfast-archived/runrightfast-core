@@ -5,7 +5,7 @@ buildscript {
 
 subprojects {
    version = '0.0.1-SNAPSHOT'
-   
+
    apply plugin: 'groovy'
    apply plugin: 'eclipse'
    apply plugin: 'cobertura'
@@ -21,7 +21,7 @@ subprojects {
       compile 'ch.qos.logback:logback-classic:1.0.13'
 
       testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
-   }   
+   }
 
    jar { manifest.attributes provider: 'RunRightFast' }
 
@@ -31,6 +31,11 @@ subprojects {
 
    sourceCompatibility = 1.7
    targetCompatibility = 1.7
+
+   test {
+      maxParallelForks = 5
+      forkEvery = 50
+   }
 
    build.dependsOn javadoc,groovydoc
 }
