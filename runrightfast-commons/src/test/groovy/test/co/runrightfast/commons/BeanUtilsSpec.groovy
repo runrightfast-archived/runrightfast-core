@@ -22,13 +22,13 @@ import co.runrightfast.commons.BeanUtils
 class BeanUtilsSpec extends Specification {
 
    @Slf4j
-   static class Person{
-      def String fname, lname
+   static class Person {
+      String fname, lname
 
       def getName() {
-         def _name = fname + ' ' + lname
-         log.info(_name)
-         _name
+         def name = fname + ' ' + lname
+         log.info(name)
+         name
       }
    }
 
@@ -37,26 +37,26 @@ class BeanUtilsSpec extends Specification {
       def person = new Person()
 
       when:
-      BeanUtils.exec(person){
-         fname = "Alfio"
-         lname = "Zappala"
+      BeanUtils.exec(person) {
+         fname = 'Alfio'
+         lname = 'Zappala'
       }
 
       then :
-      person.fname == "Alfio"
-      person.lname == "Zappala"
-      person.name == "Alfio Zappala"
+      person.fname == 'Alfio'
+      person.lname == 'Zappala'
+      person.name == 'Alfio Zappala'
    }
 
    def "exec should be able to set a bean properties in a DSL fashion and returns the target"() {
       when:
-      def person =  BeanUtils.exec(new Person()){
-         fname = "Alfio"
-         lname = "Zappala"
+      def person =  BeanUtils.exec(new Person()) {
+         fname = 'Alfio'
+         lname = 'Zappala'
       }
 
       then :
-      person.fname == "Alfio"
-      person.lname == "Zappala"
+      person.fname == 'Alfio'
+      person.lname == 'Zappala'
    }
 }

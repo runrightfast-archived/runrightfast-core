@@ -15,7 +15,7 @@
  */
 package co.runrightfast.commons
 
-abstract class UUIDUtils {
+class UUIDUtils {
 
    /**
     * 

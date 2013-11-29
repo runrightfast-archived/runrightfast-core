@@ -7,6 +7,8 @@ subprojects {
    apply plugin: 'groovy'
    apply plugin: 'eclipse'
    apply plugin: 'cobertura'
+   apply plugin: 'findbugs'
+   apply plugin: 'codenarc'
 
    repositories { mavenCentral() }
 

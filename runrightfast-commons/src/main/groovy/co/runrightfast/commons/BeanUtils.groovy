@@ -15,7 +15,7 @@
  */
 package co.runrightfast.commons
 
-abstract class BeanUtils {
+class BeanUtils {
 
    /**
     * Enables properties and methods to be invoked on the supplied target in a more groovy way
@@ -24,7 +24,7 @@ abstract class BeanUtils {
     * @param code
     * @return target
     */
-   def static exec(@DelegatesTo.Target target,@DelegatesTo code){
+   static exec(@DelegatesTo.Target target, @DelegatesTo code) {
       def clone = code.rehydrate(target, this, this)
       clone()
       target
