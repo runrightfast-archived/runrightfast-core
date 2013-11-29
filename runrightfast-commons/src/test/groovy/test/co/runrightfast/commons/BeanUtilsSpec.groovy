@@ -19,7 +19,7 @@ import groovy.util.logging.Slf4j
 import spock.lang.Specification
 import co.runrightfast.commons.BeanUtils
 
-class BeanUtilsSpock extends Specification {
+class BeanUtilsSpec extends Specification {
 
    @Slf4j
    static class Person{
