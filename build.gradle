@@ -34,3 +34,5 @@ subprojects {
 task wrapper(type: Wrapper) {
    gradleVersion = '1.9'
 }
+
+defaultTasks 'clean', 'build', 'cobertura'
