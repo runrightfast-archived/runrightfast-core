@@ -32,8 +32,8 @@ class BeanUtilsSpec extends Specification {
       }
    }
 
-   static String fname = 'Alfio'
-   static String lname = 'Zappala'
+   static final String FNAME = 'Alfio'
+   static final String LNAME = 'Zappala'
 
    def "exec should be able to set a bean properties in a DSL fashion"() {
       setup:
@@ -41,25 +41,25 @@ class BeanUtilsSpec extends Specification {
 
       when:
       BeanUtils.exec(person) {
-         fname = BeanUtilsSpec.fname
-         lname = BeanUtilsSpec.lname
+         fname = BeanUtilsSpec.FNAME
+         lname = BeanUtilsSpec.LNAME
       }
 
       then :
-      person.fname == BeanUtilsSpec.fname
-      person.lname == BeanUtilsSpec.lname
+      person.fname == BeanUtilsSpec.FNAME
+      person.lname == BeanUtilsSpec.LNAME
       person.name == 'Alfio Zappala'
    }
 
    def "exec should be able to set a bean properties in a DSL fashion and returns the target"() {
       when:
       def person =  BeanUtils.exec(new Person()) {
-         fname = BeanUtilsSpec.fname
-         lname = BeanUtilsSpec.lname
+         fname = BeanUtilsSpec.FNAME
+         lname = BeanUtilsSpec.LNAME
       }
 
       then :
-      person.fname == BeanUtilsSpec.fname
-      person.lname == BeanUtilsSpec.lname
+      person.fname == BeanUtilsSpec.FNAME
+      person.lname == BeanUtilsSpec.LNAME
    }
 }
