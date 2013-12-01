@@ -15,13 +15,13 @@
  */
 package test.co.runrightfast.commons
 
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log
 import spock.lang.Specification
 import co.runrightfast.commons.BeanUtils
 
 class BeanUtilsSpec extends Specification {
 
-   @Slf4j
+   @Log
    static class Person {
       String fname, lname
 
