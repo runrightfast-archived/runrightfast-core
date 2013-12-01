@@ -1,1 +1,1 @@
-include "runrightfast-commons"
+include "runrightfast-commons","runrightfast-api-core"

@@ -1,0 +1,35 @@
+apply plugin: 'war'
+apply plugin: 'appengine'
+
+buildscript {
+   repositories {
+       mavenCentral()
+   }
+
+   dependencies {
+       classpath 'com.google.appengine:gradle-appengine-plugin:1.8.7'
+   }
+}
+
+appengine {
+   downloadSdk = true   
+}
+
+dependencies {
+   appengineSdk 'com.google.appengine:appengine-java-sdk:1.8.8'
+   
+   appcfg {
+      email = 'azappala@azaptree.com'
+      passIn = true
+
+      logs {
+          severity = 1
+          outputFile = file('logs/gae.log')
+      }
+
+      app {
+          id = 'runrightfast-2013'
+      }
+  }
+}
+
