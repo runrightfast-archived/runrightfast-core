@@ -15,10 +15,12 @@
  */
 package test.co.runrightfast.commons
 
+import groovy.json.JsonOutput
 import groovy.util.logging.Log
 import spock.lang.Specification
 import co.runrightfast.commons.BeanUtils
 
+@Log
 class BeanUtilsSpec extends Specification {
 
    @Log
@@ -44,8 +46,9 @@ class BeanUtilsSpec extends Specification {
          fname = BeanUtilsSpec.FNAME
          lname = BeanUtilsSpec.LNAME
       }
+      log.info(JsonOutput.toJson(person))
 
-      then :
+      then:
       person.fname == BeanUtilsSpec.FNAME
       person.lname == BeanUtilsSpec.LNAME
       person.name == 'Alfio Zappala'
