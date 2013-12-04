@@ -37,8 +37,6 @@ dependencies {
    appengineSdk 'com.google.appengine:appengine-java-sdk:1.8.8'
    
    compile 'com.google.appengine:appengine-api-1.0-sdk:1.8.8'   
-   compile 'com.google.appengine:appengine-endpoints:1.8.8'
-   compile 'javax.inject:javax.inject:1'
    compile 'com.googlecode.objectify:objectify:4.0rc2'
    compile 'com.google.inject:guice:4.0-beta'
    

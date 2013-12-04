@@ -17,6 +17,6 @@ class HawkCredentials {
 
    static HawkCredentials fromJson(String json) {
       JsonSlurper slurper = new JsonSlurper()
-      return new HawkCredentials(slurper.parseText(json))
+      new HawkCredentials(slurper.parseText(json))
    }
 }

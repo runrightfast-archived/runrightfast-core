@@ -16,6 +16,7 @@ Install the following STS extensions:
 Install the following Eclipse Plugins from the Eclipse Marketplace:
 - Markdown Editor
 - CodeNarc Eclipse
+- Spock Plugin
   
 Gradle Project Import Instructions
 ==================================
