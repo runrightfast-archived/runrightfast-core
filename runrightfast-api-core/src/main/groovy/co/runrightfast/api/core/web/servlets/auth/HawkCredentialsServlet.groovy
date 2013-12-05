@@ -15,10 +15,10 @@ import com.google.appengine.api.datastore.EntityNotFoundException
 import com.google.appengine.api.datastore.KeyFactory
 
 class HawkCredentialsServlet extends HttpServlet {
-   final String entityType = 'HawkCredentials'
-   final String propId = 'id'
-   final String propKey = 'key'
-   final String propAlgorithm = 'algorithm'
+   static final String ENTITY_TYPE = 'HawkCredentials'
+   static final String PROP_ID = 'id'
+   static final String PROP_KEY = 'key'
+   static final String PROP_ALGORITHM = 'algorithm'
 
    DatastoreService datastore
 
@@ -32,7 +32,7 @@ class HawkCredentialsServlet extends HttpServlet {
       String requestUri = req.requestURI
       String id = requestUri[(requestUri.lastIndexOf('/') + 1)..(requestUri.length() - 1)]
       try {
-         Entity entity = datastore.get(KeyFactory.createKey(entityType, id))
+         Entity entity = datastore.get(KeyFactory.createKey(ENTITY_TYPE, id))
          HawkCredentials credentials = toHawkCredentials(entity)
          resp.writer.print(JsonOutput.toJson(credentials))
       } catch (EntityNotFoundException e) {
@@ -50,17 +50,17 @@ class HawkCredentialsServlet extends HttpServlet {
    }
 
    private Entity toEntity(HawkCredentials credentials) {
-      Entity entity = new Entity(entityType,credentials.id)
-      entity.setProperty(propId, credentials.id)
-      entity.setProperty(propKey, credentials.key)
-      entity.setProperty(propAlgorithm, credentials.algorithm.name())
+      Entity entity = new Entity(ENTITY_TYPE,credentials.id)
+      entity.setProperty(PROP_ID, credentials.id)
+      entity.setProperty(PROP_KEY, credentials.key)
+      entity.setProperty(PROP_ALGORITHM, credentials.algorithm.name())
       entity
    }
 
    private HawkCredentials toHawkCredentials(Entity entity) {
-      String id = entity.getProperty(propId)
-      String key = entity.getProperty(propKey)
-      HawkCredentials.Algorithm algorithm = HawkCredentials.Algorithm.valueOf(entity.getProperty(propAlgorithm))
+      String id = entity.getProperty(PROP_ID)
+      String key = entity.getProperty(PROP_KEY)
+      HawkCredentials.Algorithm algorithm = HawkCredentials.Algorithm.valueOf(entity.getProperty(PROP_ALGORITHM))
       new HawkCredentials(id, key, algorithm)
    }
 }
