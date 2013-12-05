@@ -1,6 +1,8 @@
 runrightfast-core
 =================
 
+Provides libraries and apps designed for the Google App Engine platform.
+
 RunRightFast Core Framework
 ---------------------------
 - Gradle based multi-project build structure
@@ -12,7 +14,10 @@ cd runrightfast-core
 ```
   
 - technologies
- - Java / Groovy
- - Spring
- - ElasticSearch
+ - Java
+ - Groovy
+ - Google App Engine
+- frameworks / libraries
+ - Guice - DI
+ - Guava
 - testing framework : [Spock](https://code.google.com/p/spock/wiki/SpockBasics "Spock Basics") 
