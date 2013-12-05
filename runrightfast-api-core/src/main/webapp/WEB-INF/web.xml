@@ -8,11 +8,24 @@
 	<servlet>
 		<servlet-name>version</servlet-name>
 		<servlet-class>co.runrightfast.api.core.web.servlets.VersionServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>		
+	</servlet>
+	<servlet>
+		<servlet-name>hawkCredentials</servlet-name>
+		<servlet-class>co.runrightfast.api.core.web.servlets.auth.HawkCredentialsServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>version</servlet-name>
 		<url-pattern>/version</url-pattern>
 	</servlet-mapping>	
-
+	<servlet-mapping>
+		<servlet-name>hawkCredentials</servlet-name>
+		<url-pattern>/api/v1/hawkCredentials</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>hawkCredentials</servlet-name>
+		<url-pattern>/api/v1/hawkCredentials/*</url-pattern>
+	</servlet-mapping>
 </web-app>

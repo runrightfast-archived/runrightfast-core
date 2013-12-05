@@ -2,6 +2,7 @@ package co.runrightfast.commons.auth.hawk
 
 import groovy.json.JsonSlurper
 import groovy.transform.Immutable
+import co.runrightfast.commons.UUIDUtils
 
 @Immutable
 class HawkCredentials {
@@ -18,5 +19,9 @@ class HawkCredentials {
    static HawkCredentials fromJson(String json) {
       JsonSlurper slurper = new JsonSlurper()
       new HawkCredentials(slurper.parseText(json))
+   }
+
+   static HawkCredentials create(Algorithm algorithm = Algorithm.sha256) {
+      new HawkCredentials(UUIDUtils.uuid(), UUIDUtils.uuid(), algorithm)
    }
 }

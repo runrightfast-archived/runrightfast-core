@@ -65,4 +65,14 @@ class HawkCredentialsSpec extends Specification {
       creds.key == creds2.key
       creds.algorithm == creds2.algorithm
    }
+
+   def "static #create - Algorithm is optional and defaults to sha256"() {
+      setup:
+      HawkCredentials creds = HawkCredentials.create()
+
+      expect:
+      creds.algorithm == HawkCredentials.Algorithm.sha256
+      creds.id != null
+      creds.key != null
+   }
 }
