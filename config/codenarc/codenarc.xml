@@ -55,7 +55,7 @@
 	<ruleset-ref path="rulesets/logging.xml" />
 	<ruleset-ref path="rulesets/naming.xml">
 		<rule-config name="FieldName">
-			<property name="ignoreFieldNames" value="log" />
+			<property name="ignoreFieldNames" value="log,serialVersionUID" />
 		</rule-config>
 		<rule-config name="MethodName">
 			<property name="doNotApplyToClassNames" value="*Spec" />

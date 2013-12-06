@@ -5,7 +5,8 @@ import groovy.transform.Immutable
 import co.runrightfast.commons.UUIDUtils
 
 @Immutable
-class HawkCredentials {
+class HawkCredentials implements Serializable {
+   private static final long serialVersionUID = 1
 
    static enum Algorithm {
       sha1,
